@@ -47,7 +47,7 @@ L'énergie de la conduction thermique est obtenue à partir du théorème de Fou
 
 $$
 \begin{align}
-q = \frac{\lambda\*S\*\Delta T}{L}\*time \\
+q = \frac{\lambda\*S\*\Delta T}{L}*time \\
 \\
 \text{$\lambda$: coefficient de la conductivité thermique}\\
 \text{S: aire de surface}\\
