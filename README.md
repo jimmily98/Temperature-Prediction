@@ -34,22 +34,26 @@ Sur l'image ci-dessus, la puissance au point 2 est approximé par la puissance m
 L'énergie pour baisser la température intérieure peut être obtenue à partir de la capacité thermique massique et le décalage de température entre ces deux points :
 
 $$
-Q_1 = (m_{air}+m_{wall})*c*\Delta T_1 \par
-\par
-\text{$m_{air}$: masse d'air à l'intérieur}\par
-\text{$m_{wall}$: masse d'isolant}\par
+\begin{align}
+Q_1 = (m_{air}+m_{wall})*c*\Delta T_1 \\
+\\
+\text{$m_{air}$: masse d'air à l'intérieur}\\
+\text{$m_{wall}$: masse d'isolant}\\
 \text{c: capacité thermique de l'air}
+\end{align}
 $$
 
 L'énergie de la conduction thermique est obtenue à partir du théorème de Fourier. Sur chacune des 6 surfaces intérieures, l'énergie conductive est:
 
 $$
+\begin{align}
 q = \frac{\lambda*S*\Delta T}{L}*time \\
 \\
 \text{$\lambda$: coefficient de la conductivité thermique}\\
 \text{S: aire de surface}\\
 \text{L: épaisseur du parois}\\
 \text{$\Delta T$: décalage de température, supposé à rester stable}
+\end{align}
 $$
 
 Sur l'image au-dessus, $\Delta T$ est traité comme le décalage moyenne de ces 3 points, à savoir :
