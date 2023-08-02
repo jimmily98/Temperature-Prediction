@@ -56,8 +56,8 @@ Sur l'image au-dessus, $\Delta T$ est traité comme le décalage moyenne de ces 
 
 $$
 \begin{align}
-\Delta T = \frac{\Delta T_{21} + 2*\Delta T_{22} + \Delta T_{23}}{4}\\
-time = 2*\Delta t
+\Delta T &= \frac{\Delta T_{21} + 2*\Delta T_{22} + \Delta T_{23}}{4}\\
+\text{time} &= 2*\Delta t
 \end{align}
 $$
 
