@@ -47,7 +47,7 @@ L'énergie de la conduction thermique est obtenue à partir du théorème de Fou
 
 $$
 \begin{align}
-q = \frac{\lambda*S*\Delta T}{L}*time \\
+q = \frac{\lambda\*S\*\Delta T}{L}\*time \\
 \\
 \text{$\lambda$: coefficient de la conductivité thermique}\\
 \text{S: aire de surface}\\
@@ -60,8 +60,8 @@ Sur l'image au-dessus, $\Delta T$ est traité comme le décalage moyenne de ces 
 
 $$
 \begin{align}
-\Delta T &= \frac{\Delta T_{21} + 2*\Delta T_{22} + \Delta T_{23}}{4}\\
-\text{time} &= 2*\Delta t
+\Delta T &= \frac{\Delta T_{21} + 2\*\Delta T_{22} + \Delta T_{23}}{4}\\
+\text{time} &= 2\*\Delta t
 \end{align}
 $$
 
