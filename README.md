@@ -34,10 +34,10 @@ Sur l'image ci-dessus, la puissance au point 2 est approximé par la puissance m
 L'énergie pour baisser la température intérieure peut être obtenue à partir de la capacité thermique massique et le décalage de température entre ces deux points :
 
 $$
-Q_1 = (m_{air}+m_{wall})*c*\Delta T_1 \\
-\\
-\text{$m_{air}$: masse d'air à l'intérieur}\\
-\text{$m_{wall}$: masse d'isolant}\\
+Q_1 = (m_{air}+m_{wall})*c*\Delta T_1 \par
+\par
+\text{$m_{air}$: masse d'air à l'intérieur}\par
+\text{$m_{wall}$: masse d'isolant}\par
 \text{c: capacité thermique de l'air}
 $$
 
