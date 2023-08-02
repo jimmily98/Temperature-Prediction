@@ -4,12 +4,16 @@
 Prévoir la puissance de la machine frigorifique à partir de la courbe température-temps à l'aide des paramètres de la caisse mesurée.
 
 ### Modèle
-<img src="analogie.PNG" style="width:400px">
+<center>
+  <img src="analogie.PNG" style="width:400px">
+</center>
 
 Une analogie thermique-électrique est donnée par la graphe ci-dessus. $R_w = \frac{L_w}{\lambda_w*S_w}$ est la résistance thermique de chaque paroi, $C_w$ est la capacité thermique de chaque paroi, $C_{air}$ est la capacité d'air intérieur. 
 
 Ce circuit thermique est équivalent au circuit ci-dessous:
-<img src="analogie_equi.PNG" style="width:400px">
+<center>
+  <img src="analogie_equi.PNG" style="width:400px">
+</center>
 
 On note $R_{w1}//R_{w2}//R_{w3}//R_{w4}//R_{w5}//R_{w6}$ comme $R_{equi}$, alors le bilan de puissance est: 
 
@@ -21,7 +25,9 @@ où $\dot{Q_f} = P$ est la puissance de la machine frigorifique.
 
 ### Principe
 Seule la partie de la courbe où la température diminue avec le temps est prise en compte. La puissance moyenne entre chaque deux points d'échantillonnage est calculée. 
-<img src="image_67150849.JPG" style="width:400px">
+<center>
+  <img src="image_67150849.JPG" style="width:400px">
+</center>
 
 Sur l'image ci-dessus, la puissance au point 2 est approximé par la puissance moyenne entre le point 1 et le point 3 où deux processus sont pris en compte. D'une part, l'énergie nécessaire pour abaisser la température de l'air à l'intérieur de la caisse, et d'autre part, la chaleur transférée à travers du parois. La somme de l'énergie de ces deux processus est l'énergie fournie par la machine frigorifique.
 
