@@ -35,11 +35,11 @@ L'énergie pour baisser la température intérieure peut être obtenue à partir
 
 $$
 \begin{align}
-Q_1 = (m_{air}+m_{wall})\*c\*\Delta T_1 \\
+&Q_1 = (m_{air}+m_{wall})\*c\*\Delta T_1 \\
 \\
-\text{$m_{air}$: masse d'air à l'intérieur}\\
-\text{$m_{wall}$: masse d'isolant}\\
-\text{c: capacité thermique de l'air}
+&\text{$m_{air}$: masse d'air à l'intérieur}\\
+&\text{$m_{wall}$: masse d'isolant}\\
+&\text{c: capacité thermique de l'air}
 \end{align}
 $$
 
@@ -47,12 +47,12 @@ L'énergie de la conduction thermique est obtenue à partir du théorème de Fou
 
 $$
 \begin{align}
-q = \frac{\lambda\*S\*\Delta T}{L}*time \\
+&q = \frac{\lambda\*S\*\Delta T}{L}*time \\
 \\
-\text{$\lambda$: coefficient de la conductivité thermique}\\
-\text{S: aire de surface}\\
-\text{L: épaisseur du parois}\\
-\text{$\Delta T$: décalage de température, supposé à rester stable}
+&\text{$\lambda$: coefficient de la conductivité thermique}\\
+&\text{S: aire de surface}\\
+&\text{L: épaisseur du parois}\\
+&\text{$\Delta T$: décalage de température, supposé à rester stable}
 \end{align}
 $$
 
