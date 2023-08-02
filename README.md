@@ -35,7 +35,7 @@ L'énergie pour baisser la température intérieure peut être obtenue à partir
 
 $$
 \begin{align}
-&Q_1 = (m_{air}+m_{wall})\*c\*\Delta T_1 \\
+Q_1 &= (m_{air}+m_{wall})\*c\*\Delta T_1 \\
 \\
 &\text{$m_{air}$: masse d'air à l'intérieur}\\
 &\text{$m_{wall}$: masse d'isolant}\\
