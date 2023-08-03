@@ -1,17 +1,18 @@
 import streamlit as st
+from PIL import Image
 
 st.markdown('# Temperature Prediction') 
 st.markdown('### Objectif') 
 st.markdown('Prévoir la puissance de la machine frigorifique à partir de la courbe température-temps à l\'aide des paramètres de la caisse mesurée.')
 st.markdown('### Modèle')
-st.markdown('<center> \
-  <img src="../analogie.PNG" style="width:400px"> \
-</center>')
+image1 = Image.open('analogie.PNG')
+st.image(image1, caption='Circuit thermique', use_column_width=True)
 st.markdown('Une analogie thermique-électrique est donnée par la graphe ci-dessus. $R_w = \\frac{L_w}{\\lambda_w*S_w}$ est la résistance thermique de chaque paroi, $C_w$ est la capacité thermique de chaque paroi, $C_{air}$ est la capacité d\'air intérieur.')
 st.markdown('Ce circuit thermique est équivalent au circuit ci-dessous: ')
-st.markdown('<center> \
-  <img src="../../analogie_equi.PNG" style="width:400px"> \
-</center> ')       
+
+image2 = Image.open('analogie_equi.PNG')
+st.image(image2, caption='Circuit équivalent', use_column_width=True)
+
 st.markdown('On note $R_{w1}//R_{w2}//R_{w3}//R_{w4}//R_{w5}//R_{w6}$ comme $R_{equi}$, alors le bilan de puissance est: ')
 st.latex(r'''
 \dot{Q_f} = \frac{T_{air}-T_{ext}}{R_{equi}} + (C_{air}+\sum_{i=1}^{6}C_{wi})\frac{dT}{dt}
@@ -19,9 +20,9 @@ st.latex(r'''
 st.markdown('où $\dot{Q_f} = P$ est la puissance de la machine frigorifique.')
 st.markdown('### Principe ')
 st.markdown('Seule la partie de la courbe où la température diminue avec le temps est prise en compte. La puissance moyenne entre chaque deux points d\'échantillonnage est calculée.')
-st.markdown('<center> \
-  <img src="image_67150849.JPG" style="width:400px"> \
-</center> ')
+image3 = Image.open('image_67150849.JPG')
+st.image(image3, caption='Courbe température-temps', use_column_width=True)
+
 st.markdown('Sur l\'image ci-dessus, la puissance au point 2 est approximé par la puissance moyenne entre le point 1 et le point 3 où deux processus sont pris en compte. D\'une part, l\'énergie nécessaire pour abaisser la température de l\'air à l\'intérieur de la caisse, et d\'autre part, la chaleur transférée à travers du parois. La somme de l\'énergie de ces deux processus est l\'énergie fournie par la machine frigorifique.')
 st.markdown('L\'énergie pour baisser la température intérieure peut être obtenue à partir de la capacité thermique massique et le décalage de température entre ces deux points :')
 st.latex(r''' 
