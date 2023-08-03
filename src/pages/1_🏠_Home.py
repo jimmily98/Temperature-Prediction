@@ -13,9 +13,9 @@ st.markdown('<center> \
   <img src="../../analogie_equi.PNG" style="width:400px"> \
 </center> ')       
 st.markdown('On note $R_{w1}//R_{w2}//R_{w3}//R_{w4}//R_{w5}//R_{w6}$ comme $R_{equi}$, alors le bilan de puissance est: ')
-st.markdown('$$')
-st.markdown('\\dot{Q_f} = \\frac{T_{air}-T_{ext}}{R_{equi}} + (C_{air}+\\sum_{i=1}^{6}C_{wi})\\frac{dT}{dt}')
-st.markdown('$$')
+st.latex(r'''
+\dot{Q_f} = \frac{T_{air}-T_{ext}}{R_{equi}} + (C_{air}+\sum_{i=1}^{6}C_{wi})\frac{dT}{dt}
+''')
 st.markdown('où $\dot{Q_f} = P$ est la puissance de la machine frigorifique.')
 st.markdown('### Principe ')
 st.markdown('Seule la partie de la courbe où la température diminue avec le temps est prise en compte. La puissance moyenne entre chaque deux points d\'échantillonnage est calculée.')
