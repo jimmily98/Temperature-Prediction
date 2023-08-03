@@ -1,21 +1,21 @@
 import streamlit as st
 
-st.markdown('# Temperature-Prediction') 
+st.markdown('# Temperature Prediction') 
 st.markdown('### Objectif') 
 st.markdown('Prévoir la puissance de la machine frigorifique à partir de la courbe température-temps à l\'aide des paramètres de la caisse mesurée.')
 st.markdown('### Modèle')
 st.markdown('<center> \
   <img src="../analogie.PNG" style="width:400px"> \
 </center>')
-st.markdown('Une analogie thermique-électrique est donnée par la graphe ci-dessus. $R_w = \frac{L_w}{\lambda_w*S_w}$ est la résistance thermique de chaque paroi, $C_w$ est la capacité thermique de chaque paroi, $C_{air}$ est la capacité d\'air intérieur.')
+st.markdown('Une analogie thermique-électrique est donnée par la graphe ci-dessus. $R_w = \frac{L_w}{\lambda_w\*S_w}$ est la résistance thermique de chaque paroi, $C_w$ est la capacité thermique de chaque paroi, $C_{air}$ est la capacité d\'air intérieur.')
 st.markdown('Ce circuit thermique est équivalent au circuit ci-dessous: ')
 st.markdown('<center> \
-  <img src="../analogie_equi.PNG" style="width:400px"> \
+  <img src="../../analogie_equi.PNG" style="width:400px"> \
 </center> ')       
 st.markdown('On note $R_{w1}//R_{w2}//R_{w3}//R_{w4}//R_{w5}//R_{w6}$ comme $R_{equi}$, alors le bilan de puissance est: ')
-st.markdown('$$\
-\dot{Q_f} = \frac{T_{air}-T_{ext}}{R_{equi}} + (C_{air}+\sum_{i=1}^{6}C_{wi})\frac{dT}{dt} \
-$$')
+st.markdown('$$')
+st.markdown('\dot{Q_f} = \frac{T_{air}-T_{ext}}{R_{equi}} + (C_{air}+\sum_{i=1}^{6}C_{wi})\frac{dT}{dt}')
+st.markdown('$$')
 st.markdown('où $\dot{Q_f} = P$ est la puissance de la machine frigorifique.')
 st.markdown('### Principe ')
 st.markdown('Seule la partie de la courbe où la température diminue avec le temps est prise en compte. La puissance moyenne entre chaque deux points d\'échantillonnage est calculée.')
