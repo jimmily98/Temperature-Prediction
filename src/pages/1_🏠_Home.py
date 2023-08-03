@@ -46,12 +46,12 @@ st.markdown('$$ \
 $$')
 
 st.markdown('Sur l\'image au-dessus, $\Delta T$ est traité comme le décalage moyenne de ces 3 points, à savoir :')
-st.markdown('$$ \
-\\begin{align} \
-\\Delta T &= \\frac{\\Delta T_{21} + 2*\\Delta T_{22} + \\Delta T_{23}}{4}\\ \
-\\text{time} &= 2*\\Delta t \
-\\end{align} \
-$$')
+st.markdown('$$')
+st.markdown('\\begin{align}')
+st.markdown('\\Delta T &= \\frac{\\Delta T_{21} + 2*\\Delta T_{22} + \\Delta T_{23}}{4}\\')
+st.markdown('\\text{time} &= 2*\\Delta t')
+st.markdown('\\end{align}')
+st.markdown('$$')
 st.markdown('Supposons que les énergies de conduction ainsi obtenues sont numérotées $q_1, q_2, q_3, q_4, q_5, q_6$ sur les 6 surfaces intérieures, alors l\'énergie de conduction totale est la somme de ces six énergies : ')
 st.markdown('$$ \
 Q_2 = \\sum_{i=1}^6 q_i \
