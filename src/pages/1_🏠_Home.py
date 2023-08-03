@@ -36,7 +36,7 @@ $$')
 st.markdown('L\'énergie de la conduction thermique est obtenue à partir du théorème de Fourier. Sur chacune des 6 surfaces intérieures, l\'énergie conductive est: ')
 st.markdown('$$ \
 \\begin{align} \
-&q = \frac{\lambda\*S\*\Delta T}{L}*time \\ \
+&q = \frac{\\lambda\*S*\\Delta T}{L}*time \\ \
 \\ \
 &\\text{$\lambda$: coefficient de la conductivité thermique}\\ \
 &\\text{S: aire de surface}\\ \
@@ -51,9 +51,9 @@ st.markdown('$$ \
 \\Delta T &= \\frac{\\Delta T_{21} + 2*\\Delta T_{22} + \\Delta T_{23}}{4}\\ \
 \\text{time} &= 2*\\Delta t \
 \\end{align} \
-$$ \
-Supposons que les énergies de conduction ainsi obtenues sont numérotées $q_1, q_2, q_3, q_4, q_5, q_6$ sur les 6 surfaces intérieures, alors l\'énergie de conduction totale est la somme de ces six énergies : \
-$$ \
+$$')
+st.markdown('Supposons que les énergies de conduction ainsi obtenues sont numérotées $q_1, q_2, q_3, q_4, q_5, q_6$ sur les 6 surfaces intérieures, alors l\'énergie de conduction totale est la somme de ces six énergies : ')
+st.markdown('$$ \
 Q_2 = \\sum_{i=1}^6 q_i \
 $$ \
 La puissance approximée de la machine frigorique au point 2 est donc : \
