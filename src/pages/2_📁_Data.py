@@ -9,7 +9,7 @@ option = st.selectbox('Select data', ['F3338', 'F3339', 'F3340', 'F3341', 'F3342
 
 # read data from .xlsx file
 filename = option + '.xlsx'
-df = pd.read_excel('../../data/'+filename,decimal=',',header=None)
+df = pd.read_excel('data/'+filename,decimal=',',header=None)
 
 ### --- draw the data --- ###
 # read the data from 3-26 column, from 8th row to the end
