@@ -5,6 +5,11 @@ import streamlit as st
 
 st.title('Select data')
 
+@st.cache
+def convert_df(df):
+    return df.to_csv().encode('utf-8')
+
+
 col1, col2 = st.columns(2)
 with col1:
     st.subheader('Choose your data from the drop-down menu below')
@@ -16,20 +21,18 @@ with col1:
 with col2:
     st.subheader('Upload parameters')
     df_sample =pd.read_excel('data/EssaiClient.xlsx',decimal=',',header=None)
-    df_sample.to_csv().encode('utf-8')
+    df_sample = convert_df(df_sample)
     st.download_button(
-    label="Download sample file",
-    data=df_sample,
-    file_name='parameters_sample.csv',
+        label="Download sample file",
+        data=df_sample,
+        file_name='parameters_sample.csv',
+        mime='text/csv',
     )
     uploaded_file = st.file_uploader("Choose a file")
     if uploaded_file is not None:
-        df_par = pd.read_excel(uploaded_file,decimal=',',header=None)
+        df_par = pd.read_excel(uploaded_file, decimal=',',header=None)
 
 
-# read data from .xlsx file
-filename = option + '.xlsx'
-df = pd.read_excel('data/'+filename,decimal=',',header=None)
 
 ### --- draw the data --- ###
 # read the data from 3-26 column, from 8th row to the end
