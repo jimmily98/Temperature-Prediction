@@ -13,7 +13,7 @@ def convert_df(df):
 col1, col2 = st.columns(2)
 with col1:
     st.subheader('Choose your data from the drop-down menu below')
-    option = st.selectbox('Select data', ['F3338', 'F3339', 'F3340', 'F3341', 'F3342', 'F3343', 'F3344', 'F3345', 'F3346'])
+    option = st.selectbox('Select data', ['F3326','F3327','F3328','F3329','F3330','F3331','F3332','F3338', 'F3339', 'F3340', 'F3341', 'F3342', 'F3343', 'F3344', 'F3345', 'F3346'])
     st.session_state['option'] = option
     # read data from .xlsx file
     filename = option + '.xlsx'
