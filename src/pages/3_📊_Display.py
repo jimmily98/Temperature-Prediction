@@ -36,7 +36,11 @@ def cal_puissance_n(pho,V,m_isolant,c,c_isolant,K,A,step, step_num, data):
 
 ### ----------------------- Read Coefficients  -----------------------
 
-prts = st.session_state['df_par']
+if st.session_state['df_par']==1:
+    prts = pd.read_excel("data/EssaiClient.xlsx",decimal='.',header=None)
+else:
+    st.chat_message('Please upload your parameters OR use default parameters')
+    st.stop()
 essnum = st.session_state['option']
 row = prts[prts[0] == essnum].index[0]
 length = prts[6][row]
