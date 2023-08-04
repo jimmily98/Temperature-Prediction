@@ -21,7 +21,6 @@ with col2:
     label="Download sample file",
     data=df_sample,
     file_name='parameters_sample.csv',
-    mime='text/csv',
     )
     uploaded_file = st.file_uploader("Choose a file")
     if uploaded_file is not None:
