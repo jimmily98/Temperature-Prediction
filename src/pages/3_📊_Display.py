@@ -41,6 +41,7 @@ if st.session_state['df_par']==1:
 else:
     st.chat_message('Please upload your parameters OR use default parameters')
     st.stop()
+st.write(prts)
 essnum = st.session_state['option']
 row = prts[prts[0] == essnum].index[0]
 length = prts[6][row]
@@ -50,7 +51,6 @@ V = prts[9][row]
 A = prts[10][row]
 Density = prts[12][row]
 c_isolant = prts[13][row]
-st.write(prts[14][row])
 L_T = [float(item)/1000 for item in prts[14][row].split(',')]
 L_B = [float(item)/1000 for item in prts[15][row].split(',')]
 L_S = [float(item)/1000 for item in prts[16][row].split(',')]
