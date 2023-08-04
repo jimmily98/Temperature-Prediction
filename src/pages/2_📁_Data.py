@@ -17,6 +17,9 @@ with col1:
     # read data from .xlsx file
     filename = option + '.xlsx'
     df = pd.read_excel('data/'+filename,decimal=',',header=None)
+    st.markdown('<br/><br/>' + option)
+    deflt = st.checkbox('Use default parameters')
+
 
 with col2:
     st.subheader('Upload parameters')
@@ -28,10 +31,17 @@ with col2:
         file_name='parameters_sample.csv',
         mime='text/csv',
     )
-    uploaded_file = st.file_uploader("Choose a file")
-    if uploaded_file is not None:
-        df_par = pd.read_excel(uploaded_file, decimal=',',header=None)
+    uploaded_file = col2.file_uploader("Choose a file")
 
+ctm = col1.button('Confirm')
+if ctm:
+    if deflt:
+        df_par = pd.read_excel('data/EssaiClient.xlsx',decimal=',',header=None)
+    else:
+        if uploaded_file is not None:
+            df_par = pd.read_excel(uploaded_file, decimal=',',header=None)
+        else:
+            st.write('Please upload your parameters OR use default parameters')
 
 
 ### --- draw the data --- ###
