@@ -41,7 +41,6 @@ if st.session_state['df_par']==1:
 else:
     st.chat_message('Please upload your parameters OR use default parameters')
     st.stop()
-st.write(prts)
 essnum = st.session_state['option']
 row = prts[prts[0] == essnum].index[0]
 length = prts[6][row]
