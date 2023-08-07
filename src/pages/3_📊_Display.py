@@ -81,7 +81,7 @@ col1, col2 = st.columns(2)
 with col1:
     ### ------------------- Read Time-Temperature data --------------------------------------
     duration = len(data)
-    st.write(data.iloc[:, 2:14])
+    st.write(data.iloc[1:10, 2:14].mean(axis = 1))
     plt.plot(list(range(0,duration*2,2)), data.iloc[:, 2:14].mean(axis = 1).astype(float), label="external temp")
     plt.plot(list(range(0,duration*2,2)), data.iloc[:,14:26].mean(axis = 1).astype(float), label="internal temp")
     plt.xlabel("time")
