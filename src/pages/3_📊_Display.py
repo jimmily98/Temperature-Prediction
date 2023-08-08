@@ -34,6 +34,9 @@ def cal_puissance_n(pho,V,m_isolant,c,c_isolant,K,A,step, step_num, data):
     
     return Q1/2/step, Q2/2/step, (Q1+Q2)/2/step
 
+
+st.title('Display Results')
+
 ### ----------------------- Read Coefficients  -----------------------
 prsd = st.button('Display')
 if prsd:
@@ -81,6 +84,7 @@ if prsd:
 col1, col2 = st.columns(2)
 if prsd:
     with col1:
+        st.subheader('Raw data')
         ### ------------------- Read Time-Temperature data --------------------------------------
         duration = len(data)
         # st.write(data.iloc[:, 0:12].mean(axis = 1).astype(float))
@@ -95,6 +99,7 @@ if prsd:
         st.pyplot()
 
     with col2:
+        st.subheader('Power')
         # ---------------------------- Calculate power --------------------------------------
         step = 120 # time interval (seconds)
         # start to calculate from the 2nd minute
