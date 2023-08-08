@@ -21,10 +21,10 @@ def cal_puissance_n(pho,V,m_isolant,c,c_isolant,K,A,step, step_num, data):
 
     # power == average power from (step - 1) to (step + 1)
     
-    delta_T1 = statistics.mean(data.iloc[step_num-1,14:26].astype(float) - data.iloc[step_num+1,14:26].astype(float))
-    delta_T21 = statistics.mean(np.array(data.iloc[step_num-1, 2:14].astype(float)) - np.array(data.iloc[step_num-1, 14:26].astype(float)))
-    delta_T22 = statistics.mean(np.array(data.iloc[step_num, 2:14].astype(float)) - np.array(data.iloc[step_num, 14:26].astype(float)))
-    delta_T23 = statistics.mean(np.array(data.iloc[step_num+1, 2:14].astype(float)) - np.array(data.iloc[step_num+1, 14:26].astype(float)))
+    delta_T1 = statistics.mean(data.iloc[step_num-1,12:24].astype(float) - data.iloc[step_num+1,12:24].astype(float))
+    delta_T21 = statistics.mean(np.array(data.iloc[step_num-1, 0:12].astype(float)) - np.array(data.iloc[step_num-1, 12:24].astype(float)))
+    delta_T22 = statistics.mean(np.array(data.iloc[step_num, 0:12].astype(float)) - np.array(data.iloc[step_num, 12:24].astype(float)))
+    delta_T23 = statistics.mean(np.array(data.iloc[step_num+1, 0:12].astype(float)) - np.array(data.iloc[step_num+1, 12:24].astype(float)))
 
     m = pho * V
     Q1 = m*c*delta_T1 + m_isolant*c_isolant*1000*delta_T1/2
@@ -88,6 +88,8 @@ with col1:
     plt.ylabel("temp")
     plt.legend()
     plt.title(essnum)
+    # disable the warning
+    st.set_option('deprecation.showPyplotGlobalUse', False)
     st.pyplot()
 
 with col2:
