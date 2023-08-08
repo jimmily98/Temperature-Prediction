@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import streamlit as st
 
-st.markdown("<h1 style='text-align: center;'>Select Data</h1>")
+st.markdown("<h1 style='text-align: center;'>Select Data</h1>", unsafe_allow_html=True)
 st.session_state['df_par'] = 0
 st.session_state['option'] = 0
 
