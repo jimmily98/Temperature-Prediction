@@ -80,38 +80,39 @@ if prsd:
 
 ### ------------------- Display Results--------------------------------------
 col1, col2 = st.columns(2)
-with col1:
-    ### ------------------- Read Time-Temperature data --------------------------------------
-    duration = len(data)
-    # st.write(data.iloc[:, 0:12].mean(axis = 1).astype(float))
-    plt.plot(list(range(0,duration*2,2)), data.iloc[:, 0:12].mean(axis = 1), label="external temp")
-    plt.plot(list(range(0,duration*2,2)), data.iloc[:,12:24].mean(axis = 1), label="internal temp")
-    plt.xlabel("time")
-    plt.ylabel("temp")
-    plt.legend()
-    plt.title(essnum)
-    # disable the warning
-    st.set_option('deprecation.showPyplotGlobalUse', False)
-    st.pyplot()
+if prsd:
+    with col1:
+        ### ------------------- Read Time-Temperature data --------------------------------------
+        duration = len(data)
+        # st.write(data.iloc[:, 0:12].mean(axis = 1).astype(float))
+        plt.plot(list(range(0,duration*2,2)), data.iloc[:, 0:12].mean(axis = 1), label="external temp")
+        plt.plot(list(range(0,duration*2,2)), data.iloc[:,12:24].mean(axis = 1), label="internal temp")
+        plt.xlabel("time")
+        plt.ylabel("temp")
+        plt.legend()
+        plt.title(essnum)
+        # disable the warning
+        st.set_option('deprecation.showPyplotGlobalUse', False)
+        st.pyplot()
 
-with col2:
-    # ---------------------------- Calculate power --------------------------------------
-    step = 120 # time interval (seconds)
-    # start to calculate from the 2nd minute
-    start = 2
-    length = 100
-    # power = [np.array(cal_puissance(rho,V,m_isolant,c,c_isolant,lamb,length,width,height,coef,step, step_num, data)) for step_num in range(1,length+1)]
-    power = [np.array(cal_puissance_n(rho,V,m_isolant,c,c_isolant,K,A,step, step_num, data)) for step_num in range(1,length+1)]
-    power_1 = [power[i][0] for i in range(length)]
-    power_2 = [power[i][1] for i in range(length)]
-    power_t = [power[i][2] for i in range(length)]
-    end = 2+2*length
-    plt.figure()
-    plt.plot(np.arange(start,end,2),power_1,label="Q1")
-    plt.plot(np.arange(start,end,2),power_2,label="Q2")
-    plt.plot(np.arange(start,end,2),power_t,label="total")
-    plt.title(essnum)
-    plt.xlabel("time (min)")
-    plt.ylabel("refrigerating capacity (W)")
-    plt.legend()
-    st.pyplot()
+    with col2:
+        # ---------------------------- Calculate power --------------------------------------
+        step = 120 # time interval (seconds)
+        # start to calculate from the 2nd minute
+        start = 2
+        length = 100
+        # power = [np.array(cal_puissance(rho,V,m_isolant,c,c_isolant,lamb,length,width,height,coef,step, step_num, data)) for step_num in range(1,length+1)]
+        power = [np.array(cal_puissance_n(rho,V,m_isolant,c,c_isolant,K,A,step, step_num, data)) for step_num in range(1,length+1)]
+        power_1 = [power[i][0] for i in range(length)]
+        power_2 = [power[i][1] for i in range(length)]
+        power_t = [power[i][2] for i in range(length)]
+        end = 2+2*length
+        plt.figure()
+        plt.plot(np.arange(start,end,2),power_1,label="Q1")
+        plt.plot(np.arange(start,end,2),power_2,label="Q2")
+        plt.plot(np.arange(start,end,2),power_t,label="total")
+        plt.title(essnum)
+        plt.xlabel("time (min)")
+        plt.ylabel("refrigerating capacity (W)")
+        plt.legend()
+        st.pyplot()
