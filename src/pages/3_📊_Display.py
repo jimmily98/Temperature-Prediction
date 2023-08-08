@@ -35,7 +35,7 @@ def cal_puissance_n(pho,V,m_isolant,c,c_isolant,K,A,step, step_num, data):
     return Q1/2/step, Q2/2/step, (Q1+Q2)/2/step
 
 
-st.markdown("<h1 style='text-align: center;'> Display Results</h3>")
+st.markdown("<h1 style='text-align: center;'> Display Results</h1>", unsafe_allow_html=True)
 
 ### ----------------------- Read Coefficients  -----------------------
 prsd = st.button('Display')
@@ -84,7 +84,7 @@ if prsd:
 col1, col2 = st.columns(2)
 if prsd:
     with col1:
-        st.markdown("<h4 style='text-align: center;'> Raw data</h3>")
+        st.markdown("<h4 style='text-align: center;'> Raw data</h4>", unsafe_allow_html=True)
         ### ------------------- Read Time-Temperature data --------------------------------------
         duration = len(data)
         # st.write(data.iloc[:, 0:12].mean(axis = 1).astype(float))
@@ -99,7 +99,7 @@ if prsd:
         st.pyplot()
 
     with col2:
-        st.markdown("<h4 style='text-align: center;'> Power</h3>")
+        st.markdown("<h4 style='text-align: center;'> Power</h4>", unsafe_allow_html=True)
         # ---------------------------- Calculate power --------------------------------------
         step = 120 # time interval (seconds)
         # start to calculate from the 2nd minute
