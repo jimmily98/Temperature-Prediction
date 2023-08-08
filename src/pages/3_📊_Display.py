@@ -84,6 +84,7 @@ with col1:
     test = data.iloc[2, 2]
     st.write(type(test))
     st.write(data.iloc[:, 2:14].mean(axis = 1).astype(float))
+    st.write(data.iloc[0:1, 2:14].mean(axis = 1))
     plt.plot(list(range(0,duration*2,2)), data.iloc[:, 2:14].mean(axis = 1).astype(float), label="external temp")
     plt.plot(list(range(0,duration*2,2)), data.iloc[:,14:26].mean(axis = 1).astype(float), label="internal temp")
     plt.xlabel("time")
