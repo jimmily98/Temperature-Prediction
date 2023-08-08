@@ -5,6 +5,7 @@ import streamlit as st
 
 st.title('Select data')
 st.session_state['df_par'] = 0
+st.session_state['option'] = 0
 
 @st.cache
 def convert_df(df):

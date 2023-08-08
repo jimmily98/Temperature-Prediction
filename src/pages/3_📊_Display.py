@@ -42,40 +42,40 @@ if prsd:
     else:
         st.chat_message('Please upload your parameters OR use default parameters')
         st.stop()
-essnum = st.session_state['option']
-row = prts[prts[0] == essnum].index[0]
-length = prts[6][row]
-width = prts[7][row]
-height = prts[8][row]
-V = prts[9][row]
-A = prts[10][row]
-Density = prts[12][row]
-c_isolant = prts[13][row]
-L_T = [float(item)/1000 for item in prts[14][row].split(',')]
-L_B = [float(item)/1000 for item in prts[15][row].split(',')]
-L_S = [float(item)/1000 for item in prts[16][row].split(',')]
-L_F = [float(item)/1000 for item in prts[17][row].split(',')]
-L_R = [float(item)/1000 for item in prts[18][row].split(',')]
+    essnum = st.session_state['option']
+    row = prts[prts[0] == essnum].index[0]
+    length = prts[6][row]
+    width = prts[7][row]
+    height = prts[8][row]
+    V = prts[9][row]
+    A = prts[10][row]
+    Density = prts[12][row]
+    c_isolant = prts[13][row]
+    L_T = [float(item)/1000 for item in prts[14][row].split(',')]
+    L_B = [float(item)/1000 for item in prts[15][row].split(',')]
+    L_S = [float(item)/1000 for item in prts[16][row].split(',')]
+    L_F = [float(item)/1000 for item in prts[17][row].split(',')]
+    L_R = [float(item)/1000 for item in prts[18][row].split(',')]
 
-K = prts[19][row]
+    K = prts[19][row]
 
-# Other coefficients
-V_isolant = (sum(L_T)+sum(L_B)+height)*(2*sum(L_S)+width)*(sum(L_F)+sum(L_R)+length) - (L_T[1]+L_B[1]+height)*(2*L_S[1]+width)*\
-(L_F[1]+L_R[1]+length)
-m_isolant = Density*V_isolant/1000
-coef = height*width*(1/L_F[0]+1/L_R[0]) + 2*height*length/L_S[0] + width*length*(1/L_B[0]+1/L_T[0])
+    # Other coefficients
+    V_isolant = (sum(L_T)+sum(L_B)+height)*(2*sum(L_S)+width)*(sum(L_F)+sum(L_R)+length) - (L_T[1]+L_B[1]+height)*(2*L_S[1]+width)*\
+    (L_F[1]+L_R[1]+length)
+    m_isolant = Density*V_isolant/1000
+    coef = height*width*(1/L_F[0]+1/L_R[0]) + 2*height*length/L_S[0] + width*length*(1/L_B[0]+1/L_T[0])
 
-filename = essnum + '.xlsx'
-df = pd.read_excel("data/"+filename,decimal=',',header=None)
-data = df.iloc[7:, 2:26].astype(float)
-# Calculate air density and heat capacity
-# Under standard atmospheric pressure, initial temperature = external temperature
-T_ex = data.iloc[0, 12:24].mean()
-rho = 101325*0.02897/(8.3145*(T_ex+273))
-r = 0.2 # air humidity (in percentage)
-c_a = 1005 # heat capacity of dry air
-c_v = 1996 # heat capacity of water vapour
-c = r*c_v + (1-r)*c_a # heat capacity of air inside 
+    filename = essnum + '.xlsx'
+    df = pd.read_excel("data/"+filename,decimal=',',header=None)
+    data = df.iloc[7:, 2:26].astype(float)
+    # Calculate air density and heat capacity
+    # Under standard atmospheric pressure, initial temperature = external temperature
+    T_ex = data.iloc[0, 12:24].mean()
+    rho = 101325*0.02897/(8.3145*(T_ex+273))
+    r = 0.2 # air humidity (in percentage)
+    c_a = 1005 # heat capacity of dry air
+    c_v = 1996 # heat capacity of water vapour
+    c = r*c_v + (1-r)*c_a # heat capacity of air inside 
 
 
 ### ------------------- Display Results--------------------------------------
