@@ -44,7 +44,7 @@ else:
         df_par = pd.read_excel(uploaded_file, decimal=',',header=None)
         st.session_state['df_par'] = 1
     else:
-        st.chat_message('Please upload your parameters OR use default parameters')
+        # st.chat_message('Please upload your parameters OR use default parameters')
         st.session_state['df_par'] = 0
 
     
