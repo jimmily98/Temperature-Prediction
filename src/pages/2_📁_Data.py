@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import streamlit as st
 
 st.title('Select data')
+st.session_state['df_par'] = 0
 
 @st.cache
 def convert_df(df):
@@ -33,18 +34,17 @@ with col2:
     )
     uploaded_file = col2.file_uploader("Choose a file")
 
-ctm = col1.button('Confirm')
-if ctm:
-    if deflt:
-        df_par = pd.read_excel('data/EssaiClient.xlsx',decimal=',',header=None)
+
+if deflt:
+    df_par = pd.read_excel('data/EssaiClient.xlsx',decimal=',',header=None)
+    st.session_state['df_par'] = 1
+else:
+    if uploaded_file is not None:
+        df_par = pd.read_excel(uploaded_file, decimal=',',header=None)
         st.session_state['df_par'] = 1
     else:
-        if uploaded_file is not None:
-            df_par = pd.read_excel(uploaded_file, decimal=',',header=None)
-            st.session_state['df_par'] = 1
-        else:
-            st.chat_message('Please upload your parameters OR use default parameters')
-            st.session_state['df_par'] = 0
+        st.chat_message('Please upload your parameters OR use default parameters')
+        st.session_state['df_par'] = 0
 
 
 ### --- draw the data --- ###

@@ -35,7 +35,7 @@ def cal_puissance_n(pho,V,m_isolant,c,c_isolant,K,A,step, step_num, data):
     return Q1/2/step, Q2/2/step, (Q1+Q2)/2/step
 
 ### ----------------------- Read Coefficients  -----------------------
-
+st.button('Display')
 if st.session_state['df_par']==1:
     prts = pd.read_excel("data/EssaiClient.xlsx",decimal='.',header=None)
 else:
@@ -77,6 +77,7 @@ c_v = 1996 # heat capacity of water vapour
 c = r*c_v + (1-r)*c_a # heat capacity of air inside 
 
 
+### ------------------- Display Results--------------------------------------
 col1, col2 = st.columns(2)
 with col1:
     ### ------------------- Read Time-Temperature data --------------------------------------
