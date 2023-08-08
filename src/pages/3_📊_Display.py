@@ -35,12 +35,13 @@ def cal_puissance_n(pho,V,m_isolant,c,c_isolant,K,A,step, step_num, data):
     return Q1/2/step, Q2/2/step, (Q1+Q2)/2/step
 
 ### ----------------------- Read Coefficients  -----------------------
-st.button('Display')
-if st.session_state['df_par']==1:
-    prts = pd.read_excel("data/EssaiClient.xlsx",decimal='.',header=None)
-else:
-    st.chat_message('Please upload your parameters OR use default parameters')
-    st.stop()
+prsd = st.button('Display')
+if prsd:
+    if st.session_state['df_par']==1:
+        prts = pd.read_excel("data/EssaiClient.xlsx",decimal='.',header=None)
+    else:
+        st.chat_message('Please upload your parameters OR use default parameters')
+        st.stop()
 essnum = st.session_state['option']
 row = prts[prts[0] == essnum].index[0]
 length = prts[6][row]
