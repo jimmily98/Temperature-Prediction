@@ -66,10 +66,10 @@ coef = height*width*(1/L_F[0]+1/L_R[0]) + 2*height*length/L_S[0] + width*length*
 
 filename = essnum + '.xlsx'
 df = pd.read_excel("data/"+filename,decimal=',',header=None)
-data = df.iloc[7:, 2:26]
+data = df.iloc[7:, 2:26].astype(float)
 # Calculate air density and heat capacity
 # Under standard atmospheric pressure, initial temperature = external temperature
-T_ex = data.iloc[0, 12:24].astype(float).mean()
+T_ex = data.iloc[0, 12:24].mean()
 rho = 101325*0.02897/(8.3145*(T_ex+273))
 r = 0.2 # air humidity (in percentage)
 c_a = 1005 # heat capacity of dry air
@@ -82,8 +82,8 @@ with col1:
     ### ------------------- Read Time-Temperature data --------------------------------------
     duration = len(data)
     # st.write(data.iloc[:, 0:12].mean(axis = 1).astype(float))
-    plt.plot(list(range(0,duration*2,2)), data.iloc[:, 0:12].mean(axis = 1).astype(float), label="external temp")
-    plt.plot(list(range(0,duration*2,2)), data.iloc[:,12:24].mean(axis = 1).astype(float), label="internal temp")
+    plt.plot(list(range(0,duration*2,2)), data.iloc[:, 0:12].mean(axis = 1), label="external temp")
+    plt.plot(list(range(0,duration*2,2)), data.iloc[:,12:24].mean(axis = 1), label="internal temp")
     plt.xlabel("time")
     plt.ylabel("temp")
     plt.legend()
