@@ -21,7 +21,7 @@ with col1:
     # read data from .xlsx file
     filename = option + '.xlsx'
     df = pd.read_excel('data/'+filename,decimal=',',header=None)
-    deflt = st.checkbox('Use default parameters')
+    deflt = st.checkbox('Use default parameters (sample file)')
 
 
 with col2:
@@ -36,6 +36,9 @@ with col2:
         mime='text/csv',
     )
     uploaded_file = col2.file_uploader("Choose a file")
+    st.session_state['uploaded_file'] = uploaded_file
+    print(uploaded_file)
+    option.options = uploaded_file[1:,0]
 
 
 if deflt:
