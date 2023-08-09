@@ -39,7 +39,7 @@ with col2:
     st.session_state['uploaded_file'] = uploaded_file
     df_prt = pd.read_excel(uploaded_file,decimal='.',header=None)
     st.write(df_prt)
-    option.options = df_prt[0,0]
+    option.options = df_prt[:,0]
 
 
 if deflt:
