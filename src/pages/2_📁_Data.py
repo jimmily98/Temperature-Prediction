@@ -37,8 +37,9 @@ with col2:
     )
     uploaded_file = col2.file_uploader("Choose a file")
     st.session_state['uploaded_file'] = uploaded_file
-    print(uploaded_file)
-    option.options = uploaded_file[1:,0]
+    df_prt = pd.read_csv(uploaded_file)
+    print(df_prt)
+    option.options = df_prt[1:,0]
 
 
 if deflt:
