@@ -27,6 +27,7 @@ with col2:
     st.markdown("<h3 style='text-align: center;'> Upload Parameters</h3>", unsafe_allow_html=True)
     df_sample =pd.read_excel('data/EssaiClient.xlsx',decimal=',',header=None)
     df_sample = convert_df(df_sample)
+    st.markdown('<br></br>')
     st.download_button(
         label="Download sample file",
         data=df_sample,
