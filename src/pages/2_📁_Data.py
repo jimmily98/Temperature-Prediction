@@ -42,6 +42,7 @@ with col2:
             df_prt = pd.read_excel(uploaded_file,decimal='.',header=None)
             # st.write(df_prt)
             st.write(df_prt.iloc[1:,0])
+            option.options = df_prt.iloc[1:,0]
 
 
 if deflt == 'Default parameters':
