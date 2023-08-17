@@ -20,7 +20,7 @@ with col1:
     st.session_state['option'] = option
     # read data from .xlsx file
     filename = option + '.xlsx'
-    df = pd.read_excel('data/'+filename,decimal=',',header=None)
+    df = pd.read_excel('data/'+filename,decimal=',',header=None):
     deflt = st.selectbox('Which parameters do you want to use?', ['Default parameters','Upload parameters'])
 
 
@@ -41,7 +41,7 @@ with col2:
         if uploaded_file is not None:
             df_prt = pd.read_excel(uploaded_file,decimal='.',header=None)
             # st.write(df_prt)
-            st.write(df_prt[1,1])
+            st.write(df_prt.iloc[0,0])
 
 
 if deflt == 'Default parameters':
