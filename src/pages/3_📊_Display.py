@@ -42,7 +42,7 @@ prsd = st.button('Display')
 if prsd:
     if st.session_state['df_par']==1:
         prts = pd.read_excel("data/EssaiClient.xlsx",decimal='.',header=None)
-    else:
+    elif 'df_par' not in st.session_state.keys() or st.session_state['df_par']==0:
         st.warning('Please upload your parameters OR use default parameters')
         st.stop()
     essnum = st.session_state['option']
