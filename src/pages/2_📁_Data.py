@@ -16,13 +16,9 @@ col1, col2 = st.columns(2)
 with col1:
     st.markdown("<h3 style='text-align: center;'> Choose your data from the drop-down menu below</h3>", unsafe_allow_html=True)
     st.markdown('<br></br>', unsafe_allow_html=True)
-    st.session_state['df_options'] = ['F3326','F3327','F3328','F3329','F3330','F3331','F3332','F3338', 'F3339', 'F3340', 'F3341', 'F3342', 'F3343', 'F3344', 'F3345', 'F3346']
-    option = st.selectbox('Select data', options = st.session_state['df_options'])
-    st.session_state['option'] = option
-    # read data from .xlsx file
-    filename = option + '.xlsx'
-    df = pd.read_excel('data/'+filename,decimal=',',header=None)
     deflt = st.selectbox('Which parameters do you want to use?', ['Default parameters','Upload parameters'])
+    if deflt == "Default parameters":
+        st.session_state['df_options'] = ['F3326','F3327','F3328','F3329','F3330','F3331','F3332','F3338', 'F3339', 'F3340', 'F3341', 'F3342', 'F3343', 'F3344', 'F3345', 'F3346']
 
 
 with col2:
@@ -43,8 +39,12 @@ with col2:
             df_prt = pd.read_excel(uploaded_file,decimal='.',header=None)
             st.write(df_prt.iloc[1:,0])
             st.session_state['df_options'] = df_prt.iloc[1:,0]
-            option = st.selectbox('Select data', options = st.session_state['df_options'])
 
+option = col1.selectbox('Select data', options = st.session_state['df_options'])
+st.session_state['option'] = option
+# read data from .xlsx file
+filename = option + '.xlsx'
+df = pd.read_excel('data/'+filename,decimal=',',header=None)
 
 if deflt == 'Default parameters':
     df_par = pd.read_excel('data/EssaiClient.xlsx',decimal=',',header=None)
