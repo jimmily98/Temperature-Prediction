@@ -21,7 +21,7 @@ with col1:
     # read data from .xlsx file
     filename = option + '.xlsx'
     df = pd.read_excel('data/'+filename,decimal=',',header=None)
-    deflt = st.checkbox('Use default parameters (sample file)')
+    deflt = st.selectbox('Which parameters do you want to use?', ['Default parameters','Upload parameters'])
 
 
 with col2:
@@ -35,15 +35,16 @@ with col2:
         file_name='parameters_sample.csv',
         mime='text/csv',
     )
-    uploaded_file = col2.file_uploader("Choose a file")
-    st.session_state['uploaded_file'] = uploaded_file
-    if uploaded_file is not None:
-        df_prt = pd.read_excel(uploaded_file,decimal='.',header=None)
-        st.write(df_prt)
-        option.options = df_prt[:,0]
+    if deflt == 'Upload parameters':
+        uploaded_file = col2.file_uploader("Choose a file")
+        st.session_state['uploaded_file'] = uploaded_file
+        if uploaded_file is not None:
+            df_prt = pd.read_excel(uploaded_file,decimal='.',header=None)
+            st.write(df_prt)
+            option.options = df_prt[:,0]
 
 
-if deflt:
+if deflt == 'Default parameters':
     df_par = pd.read_excel('data/EssaiClient.xlsx',decimal=',',header=None)
     st.session_state['df_par'] = 1
 else:
@@ -51,7 +52,6 @@ else:
         df_par = pd.read_excel(uploaded_file, decimal=',',header=None)
         st.session_state['df_par'] = 1
     else:
-        # st.chat_message('Please upload your parameters OR use default parameters')
         st.session_state['df_par'] = 0
 
     
