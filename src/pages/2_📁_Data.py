@@ -41,7 +41,7 @@ with col2:
         if uploaded_file is not None:
             df_prt = pd.read_excel(uploaded_file,decimal='.',header=None)
             # st.write(df_prt)
-            st.write(df_prt[0,0])
+            st.write(df_prt[1,1])
 
 
 if deflt == 'Default parameters':
