@@ -20,7 +20,7 @@ with col1:
     st.session_state['option'] = option
     # read data from .xlsx file
     filename = option + '.xlsx'
-    df = pd.read_excel('data/'+filename,decimal=',',header=None):
+    df = pd.read_excel('data/'+filename,decimal=',',header=None)
     deflt = st.selectbox('Which parameters do you want to use?', ['Default parameters','Upload parameters'])
 
 
