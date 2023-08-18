@@ -5,7 +5,7 @@ import streamlit as st
 
 st.markdown("<h1 style='text-align: center;'>About</h1>", unsafe_allow_html=True)
 st.markdown('<br></br>', unsafe_allow_html=True)
-st.markdown('<h4 style="margin-left: 150px;"> Contact: </h4>', unsafe_allow_html=True)
+st.markdown('<h4 style="margin-left: 200px;"> Contact: </h4>', unsafe_allow_html=True)
 st.markdown('<h6 style="text-align: center;">Tel: (+33) 0640994867</h6>', unsafe_allow_html=True)
 st.markdown('<h6 style="text-align: center;">Email: <a href="mailto:lianghangao98@gmail.com">lianghangao98@gmail.com</a></h6>',unsafe_allow_html=True)
 st.markdown('<h6 style="text-align: center;">Credit: <a href="https://www.cemafroid.fr">https://www.cemafroid.fr</a></h6>',unsafe_allow_html=True)
