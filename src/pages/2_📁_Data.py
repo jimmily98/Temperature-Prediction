@@ -25,7 +25,6 @@ with col1:
 
 
 with col2:
-    # selection = st_btn_select(('Upload Parameters', 'Upload New Data'))
     st.markdown("<h3 style='text-align: center;'> Upload Parameters</h3>", unsafe_allow_html=True)
     df_sample =pd.read_excel('data/EssaiClient.xlsx',decimal=',',header=None)
     df_sample = convert_df(df_sample)
@@ -34,6 +33,15 @@ with col2:
         label="Download sample file",
         data=df_sample,
         file_name='parameters_sample.csv',
+        mime='text/csv',
+    )
+    uploaded_data = col2.file_uploader("Upload New Data")
+    df_data =pd.read_excel('data/F3326.xlsx',decimal=',',header=None)
+    df_data = convert_df(df_data)
+    st.download_button(
+        label="Download sample data",
+        data=df_data,
+        file_name='F3326.csv',
         mime='text/csv',
     )
     if deflt == 'Upload parameters':
