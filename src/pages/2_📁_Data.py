@@ -26,15 +26,6 @@ with col1:
 
 with col2:
     st.markdown("<h3 style='text-align: center;'> Upload Parameters</h3>", unsafe_allow_html=True)
-    df_sample =pd.read_excel('data/EssaiClient.xlsx',decimal=',',header=None)
-    df_sample = convert_df(df_sample)
-    st.markdown('<br></br>', unsafe_allow_html=True)
-    st.download_button(
-        label="Download sample file",
-        data=df_sample,
-        file_name='parameters_sample.csv',
-        mime='text/csv',
-    )
     uploaded_data = col2.file_uploader("Upload New Data")
     df_data =pd.read_excel('data/F3326.xlsx',decimal=',',header=None)
     df_data = convert_df(df_data)
@@ -47,6 +38,16 @@ with col2:
     if deflt == 'Upload parameters':
         uploaded_file = col2.file_uploader("Choose a file")
         st.session_state['uploaded_file'] = uploaded_file
+        
+        df_sample =pd.read_excel('data/EssaiClient.xlsx',decimal=',',header=None)
+        df_sample = convert_df(df_sample)
+        st.markdown('<br></br>', unsafe_allow_html=True)
+        st.download_button(
+            label="Download sample file",
+            data=df_sample,
+            file_name='parameters_sample.csv',
+            mime='text/csv',
+        )
         if uploaded_file is not None:
             df_prt = pd.read_excel(uploaded_file,decimal='.',header=None)
             st.write(df_prt.iloc[1:,0])
