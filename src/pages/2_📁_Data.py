@@ -44,8 +44,9 @@ with col2:
 option = col1.selectbox('Select data', options = st.session_state['df_options'])
 st.session_state['option'] = option
 # read data from .xlsx file
-filename = option + '.xlsx'
-df = pd.read_excel('data/'+filename,decimal=',',header=None)
+if option != '':
+    filename = option + '.xlsx'
+    df = pd.read_excel('data/'+filename,decimal=',',header=None)
 
 if deflt == 'Default parameters':
     df_par = pd.read_excel('data/EssaiClient.xlsx',decimal=',',header=None)
