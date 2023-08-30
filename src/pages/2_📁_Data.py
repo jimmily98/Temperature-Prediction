@@ -2,6 +2,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import streamlit as st
+from st_btn_select import st_btn_select
+
 
 st.markdown("<h1 style='text-align: center;'>Select Data</h1>", unsafe_allow_html=True)
 st.session_state['df_par'] = 0
@@ -23,11 +25,8 @@ with col1:
 
 
 with col2:
-    col21, col22 = st.beta_columns(2)
-    with col21:
-        st.markdown("<h3 style='text-align: center;'> Upload Parameters</h3>", unsafe_allow_html=True)
-    with col22:
-        st.markdown("<h3 style='text-align: center;'> Upload Data</h3>", unsafe_allow_html=True)
+    # selection = st_btn_select(('Upload Parameters', 'Upload New Data'))
+    st.markdown("<h3 style='text-align: center;'> Upload Parameters</h3>", unsafe_allow_html=True)
     df_sample =pd.read_excel('data/EssaiClient.xlsx',decimal=',',header=None)
     df_sample = convert_df(df_sample)
     st.markdown('<br></br>', unsafe_allow_html=True)
