@@ -45,6 +45,7 @@ option = col1.selectbox('Select data', options = st.session_state['df_options'])
 st.session_state['option'] = option
 # read data from .xlsx file
 if option != '':
+    st.write('You selected:', option)
     filename = option + '.xlsx'
     df = pd.read_excel('data/'+filename,decimal=',',header=None)
 
