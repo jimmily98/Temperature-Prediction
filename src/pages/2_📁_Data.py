@@ -23,7 +23,11 @@ with col1:
 
 
 with col2:
-    st.markdown("<h3 style='text-align: center;'> Upload Parameters</h3>", unsafe_allow_html=True)
+    col21, col22 = st.beta_columns(2)
+    with col21:
+        st.markdown("<h3 style='text-align: center;'> Upload Parameters</h3>", unsafe_allow_html=True)
+    with col22:
+        st.markdown("<h3 style='text-align: center;'> Upload Data</h3>", unsafe_allow_html=True)
     df_sample =pd.read_excel('data/EssaiClient.xlsx',decimal=',',header=None)
     df_sample = convert_df(df_sample)
     st.markdown('<br></br>', unsafe_allow_html=True)
