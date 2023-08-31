@@ -70,6 +70,7 @@ with cont1:
     if deflt == 'Upload parameters' and uploaded_file is not None:
         df_prt = pd.read_excel(uploaded_file,decimal='.',header=None)
         st.session_state['df_options'] = df_prt.iloc[1:,0]
+        option.options = st.session_state['df_options']
     
     # Read parameters
     if deflt == 'Default parameters':
