@@ -26,8 +26,6 @@ st.session_state['df_options'] = []
 def convert_df(df):
     return df.to_csv().encode('utf-8')
 
-def update_params(**kwargs):
-    st.experimental_set_query_params({kwargs["param_name"]: kwargs["selected_value"]})
 
 cont1 = st.container()
 with cont1:
@@ -48,7 +46,7 @@ with cont1:
     )
 
     row2 = row([2, 4, 1], vertical_align="center")
-    option = row2.selectbox('Select data', options = st.session_state['df_options'], on_change = update_params, kwargs = {"param_name":st.session_state['df_options']})
+    option = row2.selectbox('Select data', options = st.session_state['df_options'])
     st.session_state['option'] = option
     # read data from .xlsx file
     if option != None:
