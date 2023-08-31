@@ -80,8 +80,6 @@ with cont1:
         else:
             st.session_state['df_par'] = 0
 
-st.write('TODO: outside container, add a button to go to next page')
-
-if_ready = st.button("Display results")
+if_ready = st.button("Go to Display page to see results")
 if if_ready:
-    switch_page("3_📊_Display")
+    switch_page("Display")
