@@ -69,7 +69,6 @@ with cont1:
     # Only data in parameters file are available
     if deflt == 'Upload parameters' and uploaded_file is not None:
         df_prt = pd.read_excel(uploaded_file,decimal='.',header=None)
-        st.write(df_prt.iloc[1:,0])
         st.session_state['df_options'] = df_prt.iloc[1:,0]
     
     # Read parameters
