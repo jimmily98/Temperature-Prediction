@@ -3,8 +3,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 import streamlit as st
 from st_btn_select import st_btn_select
+import git
+import os
+
+# Git repo
+repo_url = 'https://github.com/jimmily98/Temperature-Prediction'
 
 
+# Page Title & states
 st.markdown("<h1 style='text-align: center;'>Select Data</h1>", unsafe_allow_html=True)
 st.session_state['df_par'] = 0
 st.session_state['option'] = 0
@@ -38,7 +44,7 @@ with col2:
     if deflt == 'Upload parameters':
         uploaded_file = col2.file_uploader("Choose a file")
         st.session_state['uploaded_file'] = uploaded_file
-        
+
         df_sample =pd.read_excel('data/EssaiClient.xlsx',decimal=',',header=None)
         df_sample = convert_df(df_sample)
         st.markdown('<br></br>', unsafe_allow_html=True)
