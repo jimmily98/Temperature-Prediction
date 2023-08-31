@@ -68,17 +68,17 @@ with cont1:
     
     # Only data in parameters file are available
     if deflt == 'Upload parameters' and uploaded_file is not None:
-        df_prt = pd.read_excel(uploaded_file,decimal='.',header=None)
+        df_prt = pd.read_excel(uploaded_file,decimal='.',header=None, engine='openpyxl')
         st.write(df_prt.iloc[1:,0])
         st.session_state['df_options'] = df_prt.iloc[1:,0]
     
     # Read parameters
     if deflt == 'Default parameters':
-        df_par = pd.read_excel('data/EssaiClient.xlsx',decimal=',',header=None)
+        df_par = pd.read_excel('data/EssaiClient.xlsx',decimal=',',header=None, engine='openpyxl')
         st.session_state['df_par'] = 1
     else:
         if uploaded_file is not None:
-            df_par = pd.read_excel(uploaded_file, decimal=',',header=None)
+            df_par = pd.read_excel(uploaded_file, decimal=',',header=None, engine='openpyxl')
             st.session_state['df_par'] = 1
         else:
             st.session_state['df_par'] = 0
