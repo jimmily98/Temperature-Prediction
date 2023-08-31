@@ -45,7 +45,7 @@ with cont1:
     )
 
     row2 = row([2, 4, 1], vertical_align="center")
-    option = row2.selectbox('Select data', options = st.session_state['df_options'])
+    option = row2.selectbox('Select data', options = st.session_state['df_options'], on_change = update_params)
     st.session_state['option'] = option
     # read data from .xlsx file
     if option != None:
@@ -70,7 +70,6 @@ with cont1:
     if deflt == 'Upload parameters' and uploaded_file is not None:
         df_prt = pd.read_excel(uploaded_file,decimal='.',header=None)
         st.session_state['df_options'] = df_prt.iloc[1:,0]
-        option.options = st.session_state['df_options']
     
     # Read parameters
     if deflt == 'Default parameters':
