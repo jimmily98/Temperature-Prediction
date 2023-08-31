@@ -26,6 +26,9 @@ st.session_state['df_options'] = []
 def convert_df(df):
     return df.to_csv().encode('utf-8')
 
+def update_params(**kwargs):
+    st.experimental_set_query_params({kwargs["param_name"]: kwargs["selected_value"]})
+
 cont1 = st.container()
 with cont1:
     row1 = row([2, 4, 1], vertical_align="center")
