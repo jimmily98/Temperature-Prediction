@@ -48,7 +48,7 @@ with cont1:
     )
 
     row2 = row([2, 4, 1], vertical_align="center")
-    option = row2.selectbox('Select data', options = st.session_state['df_options'], on_change = update_params)
+    option = row2.selectbox('Select data', options = st.session_state['df_options'], on_change = update_params, kwarg = {"param_name":st.session_state['df_options']})
     st.session_state['option'] = option
     # read data from .xlsx file
     if option != None:
