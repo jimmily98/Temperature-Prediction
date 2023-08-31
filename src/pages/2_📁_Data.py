@@ -28,7 +28,7 @@ def convert_df(df):
 
 cont1 = st.container()
 with cont1:
-    row1 = row([2, 3, 1], vertical_align="bottom")
+    row1 = row([2, 4, 1], vertical_align="center")
     deflt = row1.selectbox('Choose parameters', ['Default parameters','Upload parameters'])
     if deflt == "Default parameters":
         st.session_state['df_options'] = ['F3326','F3327','F3328','F3329','F3330','F3331','F3332','F3338', 'F3339', 'F3340', 'F3341', 'F3342', 'F3343', 'F3344', 'F3345', 'F3346']
@@ -38,13 +38,13 @@ with cont1:
     df_data =pd.read_excel('data/F3326.xlsx',decimal=',',header=None)
     df_data = convert_df(df_data)
     row1.download_button(
-        label="Download sample data",
+        label="Sample data",
         data=df_data,
         file_name='F3326.csv',
         mime='text/csv',
     )
 
-    row2 = row([2, 3, 1], vertical_align="bottom")
+    row2 = row([2, 4, 1], vertical_align="center")
     option = row2.selectbox('Select data', options = st.session_state['df_options'])
     st.session_state['option'] = option
     # read data from .xlsx file
@@ -60,7 +60,7 @@ with cont1:
     df_sample = convert_df(df_sample)
     st.markdown('<br></br>', unsafe_allow_html=True)
     row2.download_button(
-        label="Download sample file",
+        label="Sample paramters",
         data=df_sample,
         file_name='parameters_sample.csv',
         mime='text/csv',
