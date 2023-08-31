@@ -7,6 +7,7 @@ import git
 import os
 import streamlit_extras
 from streamlit_extras.switch_page_button import switch_page
+from streamlit_extras.row import row
 
 # Git repo
 repo_url = 'https://github.com/jimmily98/Temperature-Prediction'
@@ -26,15 +27,15 @@ cont1 = st.container()
 with cont1:
     col1, col2 = st.columns(2)
     with col1:
-        st.markdown("<h3 style='text-align: center;'> Choose your data from the drop-down menu below</h3>", unsafe_allow_html=True)
+        # st.markdown("<h3 style='text-align: center;'> Choose your data from the drop-down menu below</h3>", unsafe_allow_html=True)
         st.markdown('<br></br>', unsafe_allow_html=True)
-        deflt = st.selectbox('Which parameters do you want to use?', ['Default parameters','Upload parameters'])
+        deflt = st.selectbox('Choose parameters', ['Default parameters','Upload parameters'])
         if deflt == "Default parameters":
             st.session_state['df_options'] = ['F3326','F3327','F3328','F3329','F3330','F3331','F3332','F3338', 'F3339', 'F3340', 'F3341', 'F3342', 'F3343', 'F3344', 'F3345', 'F3346']
 
 
     with col2:
-        st.markdown("<h3 style='text-align: center;'> Upload Parameters</h3>", unsafe_allow_html=True)
+        # st.markdown("<h3 style='text-align: center;'> Upload Parameters</h3>", unsafe_allow_html=True)
         uploaded_data = col2.file_uploader("Upload New Data")
         df_data =pd.read_excel('data/F3326.xlsx',decimal=',',header=None)
         df_data = convert_df(df_data)
