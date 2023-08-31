@@ -38,7 +38,7 @@ with cont1:
     df_data =pd.read_excel('data/F3326.xlsx',decimal=',',header=None)
     df_data = convert_df(df_data)
     row1.download_button(
-        label="Sample data",
+        label="Sample",
         data=df_data,
         file_name='F3326.csv',
         mime='text/csv',
@@ -53,14 +53,14 @@ with cont1:
         df = pd.read_excel('data/'+filename,decimal=',',header=None)
     
     # With Uploaded parameters
-    uploaded_file = row2.file_uploader("Choose a file")
+    uploaded_file = row2.file_uploader("Upload parameters")
     st.session_state['uploaded_file'] = uploaded_file
 
     df_sample =pd.read_excel('data/EssaiClient.xlsx',decimal=',',header=None)
     df_sample = convert_df(df_sample)
     st.markdown('<br></br>', unsafe_allow_html=True)
     row2.download_button(
-        label="Sample paramters",
+        label="Sample",
         data=df_sample,
         file_name='parameters_sample.csv',
         mime='text/csv',
