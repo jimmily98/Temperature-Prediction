@@ -74,6 +74,8 @@ with cont1:
         df_prt = pd.read_excel(uploaded_file,decimal='.',header=None)
         st.session_state['df_options'] = df_prt.iloc[1:,0]
         st.write(st.session_state['df_options'])
+        # refresh
+        open("dummy.py", 'w')
     
     # Read parameters
     if deflt == 'Default parameters':
