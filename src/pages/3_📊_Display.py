@@ -5,10 +5,8 @@ import statistics
 import streamlit as st
 from streamlit_extras.row import row
 
-# calculate power of a refrigerated container
 
-# calculate power of a refrigerated container (with K (W/m^2*C))
-# q = K*A*T*time
+st.session_state['have calculated'] = 0
 
 @st.cache
 def cal_puissance_n(pho,V,m_isolant,c,c_isolant,K,A,step, step_num, data):
@@ -40,7 +38,7 @@ def cal_puissance_n(pho,V,m_isolant,c,c_isolant,K,A,step, step_num, data):
 st.markdown("<h1 style='text-align: center;'> Display Results</h1>", unsafe_allow_html=True)
 
 row1 = row([1,5], vertical_align="center")
-prsd = row1.button('Display')
+prsd = row1.button('Calculate')
 #### -------------------- Display results --------------------
 if prsd:
     if st.session_state['df_par']==1:
@@ -76,9 +74,6 @@ if prsd:
     df = pd.read_excel("data/"+filename,decimal=',',header=None)
     data = df.iloc[7:, 2:26].astype(float)
 
-    # add window bar
-    windowbar = row1.slider('Choose the window', 1, len(data.iloc[:,0])-1, len(data.iloc[:,0])-1)
-
     # Calculate air density and heat capacity
     # Under standard atmospheric pressure, initial temperature = external temperature
     T_ex = data.iloc[0, 12:24].mean()
@@ -88,6 +83,9 @@ if prsd:
     c_v = 1996 # heat capacity of water vapour
     c = r*c_v + (1-r)*c_a # heat capacity of air inside 
 
+    # add window bar
+if prsd or st.session_state['have calculated']==1:
+    windowbar = row1.slider('Choose the window', 1, len(data.iloc[:,0])-1, len(data.iloc[:,0])-1)
 
 ### ------------------- Display Results--------------------------------------
 col1, col2 = st.columns(2)
@@ -130,6 +128,8 @@ if prsd:
         plt.ylabel("refrigerating capacity (W)")
         plt.legend()
         st.pyplot()
+        # renew session state
+        st.session_state['have calculated'] = 1 
 
 
 
