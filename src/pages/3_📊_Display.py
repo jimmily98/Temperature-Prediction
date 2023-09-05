@@ -91,8 +91,8 @@ if prsd:
         # st.write(data.iloc[:, 0:12].mean(axis = 1).astype(float))
         plt.plot(list(range(0,duration*2,2)), data.iloc[:, 0:12].mean(axis = 1), label="external temp")
         plt.plot(list(range(0,duration*2,2)), data.iloc[:,12:24].mean(axis = 1), label="internal temp")
-        plt.xlabel("time")
-        plt.ylabel("temp")
+        plt.xlabel("time(min)")
+        plt.ylabel("temp(℃)")
         plt.legend()
         plt.title(essnum)
         # disable the warning

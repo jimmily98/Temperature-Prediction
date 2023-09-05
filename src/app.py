@@ -1,15 +1,15 @@
 import streamlit as st
 from PIL import Image
 
-st.markdown("<h1 style='text-align: center;'>Data and Parameters</h1>", unsafe_allow_html=True)
-st.markdown("<h4 style='text-align: left;'>Remarque</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>Power Calculator</h1>", unsafe_allow_html=True)
+st.markdown("<h4 style='text-align: left;'>Remarque</h4>", unsafe_allow_html=True)
 st.markdown('Jusqu\'à présent, le modèle n\'a pas complètement résolu le problème, car la puissance calculée diffère considérablement de la puissance réelle. Certains des calculs et des mesures sont énumérés dans le tableau ci-dessous.')
 image1 = Image.open('tab_1.PNG')
 st.image(image1, caption='Comparaison : puissance calculée et mesurée', use_column_width=True)
 st.markdown('Nous pouvons constater deux différences :')
-st.markdown('1. aux deux températures, \
+st.markdown('1. Au niveau des deux températures, \
             la puissance réelle mesurée est nettement supérieure à la puissance calculée')
-st.markdown('2. dans la puissance mesurée, \
+st.markdown('2. Dans la puissance mesurée, \
             la puissance du congélateur diminue à mesure que la température diminue, \
             ce qui est conforme à la loi des moteurs thermiques. \
             En revanche, dans la puissance calculée, \
