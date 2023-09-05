@@ -34,7 +34,6 @@ with cont1:
     if deflt == "Default parameters":
         st.session_state['df_options'] = ['F3326','F3327','F3328','F3329','F3330','F3331','F3332','F3338', 'F3339', 'F3340', 'F3341', 'F3342', 'F3343', 'F3344', 'F3345', 'F3346']
 
-    # st.markdown("<h3 style='text-align: center;'> Upload Parameters</h3>", unsafe_allow_html=True)
     uploaded_data = row1.file_uploader("Upload New Data")
     df_data =pd.read_excel('data/F3326.xlsx',decimal=',',header=None)
     df_data = convert_df(df_data)
@@ -46,6 +45,9 @@ with cont1:
     )
 
     row2 = row([2, 4, 1], vertical_align="center")
+
+    st.write(st.session_state['df_options'])
+    
     option = row2.selectbox('Select data', options = st.session_state['df_options'])
     st.session_state['option'] = option
     # read data from .xlsx file
