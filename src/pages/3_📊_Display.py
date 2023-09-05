@@ -89,10 +89,10 @@ if prsd:
     with col1:
         st.markdown("<h4 style='text-align: center;'> Raw data</h4>", unsafe_allow_html=True)
         ### ------------------- Read Time-Temperature data --------------------------------------
-        duration = windowbar-1
+        duration = windowbar
         # st.write(data.iloc[:, 0:12].mean(axis = 1).astype(float))
-        plt.plot(list(range(0,duration*2,2)), data.iloc[:, 0:12].mean(axis = 1), label="external temp")
-        plt.plot(list(range(0,duration*2,2)), data.iloc[:,12:24].mean(axis = 1), label="internal temp")
+        plt.plot(list(range(0,duration*2,2)), data.iloc[0:windowbar, 0:12].mean(axis = 1), label="external temp")
+        plt.plot(list(range(0,duration*2,2)), data.iloc[0:windowbar,12:24].mean(axis = 1), label="internal temp")
         plt.xlabel("time(min)")
         plt.ylabel("temp(℃)")
         plt.legend()
