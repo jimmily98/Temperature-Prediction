@@ -1,7 +1,4 @@
 import streamlit as st
-from streamlit_extras.switch_page_button import switch_page
-from streamlit_extras.row import row
-
 
 st.markdown("<h1 style='text-align: center;'>Data and Parameters</h1>", unsafe_allow_html=True)
 st.markdown("<h4 style='text-align: center;'>Remarque</h1>", unsafe_allow_html=True)
