@@ -3,12 +3,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import statistics
 import streamlit as st
+from streamlit_extras.row import row
 
 # calculate power of a refrigerated container
 
 # calculate power of a refrigerated container (with K (W/m^2*C))
 # q = K*A*T*time
 
+@st.cache
 def cal_puissance_n(pho,V,m_isolant,c,c_isolant,K,A,step, step_num, data):
     # pho: density of the material
     # V: volume of the container
@@ -37,14 +39,16 @@ def cal_puissance_n(pho,V,m_isolant,c,c_isolant,K,A,step, step_num, data):
 
 st.markdown("<h1 style='text-align: center;'> Display Results</h1>", unsafe_allow_html=True)
 
-### ----------------------- Read Coefficients  -----------------------
-prsd = st.button('Display')
+row1 = row([1,5], vertical_align="center")
+prsd = row1.button('Display')
+#### -------------------- Display results --------------------
 if prsd:
     if st.session_state['df_par']==1:
         prts = pd.read_excel("data/EssaiClient.xlsx",decimal='.',header=None)
     elif 'df_par' not in st.session_state.keys() or st.session_state['df_par']==0:
         st.warning('Please upload your parameters OR use default parameters')
         st.stop()
+
     essnum = st.session_state['option']
     row = prts[prts[0] == essnum].index[0]
     length = prts[6][row]
@@ -71,6 +75,10 @@ if prsd:
     filename = essnum + '.xlsx'
     df = pd.read_excel("data/"+filename,decimal=',',header=None)
     data = df.iloc[7:, 2:26].astype(float)
+
+    # add window bar
+    windowbar = row1.slider('Choose the window', 1, len(data.iloc[:,0])-1, len(data.iloc[:,0])-1)
+
     # Calculate air density and heat capacity
     # Under standard atmospheric pressure, initial temperature = external temperature
     T_ex = data.iloc[0, 12:24].mean()
@@ -106,7 +114,7 @@ if prsd:
         # start to calculate from the 2nd minute
         start = 2
         # length = 100
-        length = len(data.iloc[:,0])-2
+        length = windowbar-1
         # power = [np.array(cal_puissance(rho,V,m_isolant,c,c_isolant,lamb,length,width,height,coef,step, step_num, data)) for step_num in range(1,length+1)]
         power = [np.array(cal_puissance_n(rho,V,m_isolant,c,c_isolant,K,A,step, step_num, data)) for step_num in range(1,length+1)]
         power_1 = [power[i][0] for i in range(length)]
@@ -122,3 +130,6 @@ if prsd:
         plt.ylabel("refrigerating capacity (W)")
         plt.legend()
         st.pyplot()
+
+
+
