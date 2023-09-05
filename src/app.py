@@ -1,7 +1,13 @@
 import streamlit as st
 from PIL import Image
 
+
 st.markdown("<h1 style='text-align: center;'>Power Calculator</h1>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: left;'>Introduction</h3>", unsafe_allow_html=True)
+st.markdown("Le logiciel développé a pour objectif de calculer la puissance requise \
+            par la machine frigorifique en fonction des paramètres spécifiques de la caisse\
+             et des conditions de température. Les principes de ces calculs sont détaillés\
+             dans la sous-page intitulée \"Home\".")
 st.markdown("<h4 style='text-align: left;'>Remarque</h4>", unsafe_allow_html=True)
 st.markdown('Jusqu\'à présent, le modèle n\'a pas complètement résolu le problème, car la puissance calculée diffère considérablement de la puissance réelle. Certains des calculs et des mesures sont énumérés dans le tableau ci-dessous.')
 image1 = Image.open('tab_1.PNG')
