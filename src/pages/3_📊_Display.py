@@ -105,7 +105,8 @@ if prsd:
         step = 120 # time interval (seconds)
         # start to calculate from the 2nd minute
         start = 2
-        length = 100
+        # length = 100
+        length = len(data.iloc[:,0])-2
         # power = [np.array(cal_puissance(rho,V,m_isolant,c,c_isolant,lamb,length,width,height,coef,step, step_num, data)) for step_num in range(1,length+1)]
         power = [np.array(cal_puissance_n(rho,V,m_isolant,c,c_isolant,K,A,step, step_num, data)) for step_num in range(1,length+1)]
         power_1 = [power[i][0] for i in range(length)]
