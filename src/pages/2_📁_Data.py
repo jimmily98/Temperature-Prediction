@@ -9,9 +9,6 @@ import streamlit_extras
 from streamlit_extras.switch_page_button import switch_page
 from streamlit_extras.row import row
 
-# Git repo
-repo_url = 'https://github.com/jimmily98/Temperature-Prediction'
-
 
 # Page Title & states
 st.markdown("<h1 style='text-align: center;'>Data and Parameters</h1>", unsafe_allow_html=True)
@@ -54,7 +51,6 @@ with cont1:
     
     # With Uploaded parameters
     uploaded_file = row2.file_uploader("Upload parameters")
-    st.session_state['uploaded_file'] = uploaded_file
 
     df_sample =pd.read_excel('data/EssaiClient.xlsx',decimal=',',header=None)
     df_sample = convert_df(df_sample)
@@ -67,11 +63,16 @@ with cont1:
     )
     
     # Only data in parameters file are available
+    if uploaded_file is None:
+        st.session_state['uploaded_file'] = 0
+    if deflt == 'Upload parameters' and uploaded_file is None:
+        st.session_state['have_rerun'] = 0
     if deflt == 'Upload parameters' and uploaded_file is not None:
         df_prt = pd.read_excel(uploaded_file,decimal='.',header=None)
         st.session_state['df_options'] = df_prt.iloc[1:,0]
-        st.write(st.session_state['df_options'])
-        if st.session_state['df_options'] == None:
+        st.session_state['uploaded_file'] = 1
+        if st.session_state['have_rerun'] == 0:
+            st.session_state['have_rerun'] = 1
             st.experimental_rerun()
 
     # Read parameters
