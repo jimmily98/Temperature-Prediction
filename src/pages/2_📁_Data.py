@@ -17,12 +17,10 @@ repo_url = 'https://github.com/jimmily98/Temperature-Prediction'
 st.markdown("<h1 style='text-align: center;'>Data and Parameters</h1>", unsafe_allow_html=True)
 # "df_par" == 0: parameters not uploaded; "df_par" == 1: parameters uploaded
 st.session_state['df_par'] = 0
-# "option": selected data
-st.session_state['option'] = 0
 # "df_options": options of data (As defined in parameter file)
 st.session_state['df_options'] = []
 
-
+@st.cache
 def convert_df(df):
     return df.to_csv().encode('utf-8')
 
@@ -46,10 +44,9 @@ with cont1:
 
     row2 = row([2, 4, 1], vertical_align="center")
 
-    st.write(st.session_state['df_options'])
+    st.write("test: ",st.session_state['df_options'])
 
     option = row2.selectbox('Select data', options = st.session_state['df_options'])
-    st.session_state['option'] = option
     # read data from .xlsx file
     if option != None:
         filename = option + '.xlsx'
