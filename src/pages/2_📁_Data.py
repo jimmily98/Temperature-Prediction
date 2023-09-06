@@ -14,8 +14,6 @@ from streamlit_extras.row import row
 st.markdown("<h1 style='text-align: center;'>Data and Parameters</h1>", unsafe_allow_html=True)
 # "df_par" == 0: parameters not uploaded; "df_par" == 1: parameters uploaded
 st.session_state['df_par'] = 0
-# "df_options": options of data (As defined in parameter file)
-st.session_state['df_options'] = []
 
 @st.cache
 def convert_df(df):
@@ -63,17 +61,14 @@ with cont1:
     )
     
     # Only data in parameters file are available
-    if uploaded_file is None:
-        st.session_state['uploaded_file'] = 0
     if deflt == 'Upload parameters' and uploaded_file is None:
         st.session_state['have_rerun'] = 0
     if deflt == 'Upload parameters' and uploaded_file is not None:
         df_prt = pd.read_excel(uploaded_file,decimal='.',header=None)
         st.session_state['df_options'] = df_prt.iloc[1:,0]
-        st.session_state['uploaded_file'] = 1
-        if st.session_state['have_rerun'] == 0:
-            st.session_state['have_rerun'] = 1
-            st.experimental_rerun()
+        # if st.session_state['have_rerun'] == 0:
+        #     st.session_state['have_rerun'] = 1
+        #     st.experimental_rerun()
 
     # Read parameters
     if deflt == 'Default parameters':
