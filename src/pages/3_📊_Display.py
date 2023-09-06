@@ -5,7 +5,6 @@ import statistics
 import streamlit as st
 from streamlit_extras.row import row
 
-@st.cache
 def cal_puissance_n(pho,V,m_isolant,c,c_isolant,K,A,step, step_num, data):
     # pho: density of the material
     # V: volume of the container
