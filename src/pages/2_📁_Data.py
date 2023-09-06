@@ -59,9 +59,14 @@ with cont1:
     )
     
     # Only data in parameters file are available
+    if deflt == 'Upload parameters' and uploaded_file is None:
+        st.session_state['have_rerun'] = 0
     if deflt == 'Upload parameters' and uploaded_file is not None:
         df_prt = pd.read_excel(uploaded_file,decimal='.',header=None)
         st.session_state['df_options'] = df_prt.iloc[1:,0]
+        if st.session_state['have_rerun'] == 0:
+            st.session_state['have_rerun'] = 1
+            st.experimental_rerun()
 
     # Read parameters
     if deflt == 'Default parameters':
