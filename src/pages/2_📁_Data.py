@@ -22,7 +22,7 @@ st.session_state['option'] = 0
 # "df_options": options of data (As defined in parameter file)
 st.session_state['df_options'] = []
 
-@st.cache
+
 def convert_df(df):
     return df.to_csv().encode('utf-8')
 
@@ -71,7 +71,6 @@ with cont1:
     
     # Only data in parameters file are available
     if deflt == 'Upload parameters' and uploaded_file is not None:
-        st.write('have entered')
         df_prt = pd.read_excel(uploaded_file,decimal='.',header=None)
         st.session_state['df_options'] = df_prt.iloc[1:,0]
         st.write(st.session_state['df_options'])
