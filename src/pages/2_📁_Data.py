@@ -71,9 +71,8 @@ with cont1:
         df_prt = pd.read_excel(uploaded_file,decimal='.',header=None)
         st.session_state['df_options'] = df_prt.iloc[1:,0]
         st.write(st.session_state['df_options'])
-        # refresh
-        with open("dummy.py", 'w') as f:
-            f.write(f'dummy')
+        option = row2.selectbox('Select data', options = st.session_state['df_options'])
+        
     # Read parameters
     if deflt == 'Default parameters':
         df_par = pd.read_excel('data/EssaiClient.xlsx',decimal=',',header=None)
