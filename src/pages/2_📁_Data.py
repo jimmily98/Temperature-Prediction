@@ -26,6 +26,8 @@ with cont1:
     deflt = row1.selectbox('Choose parameters', ['Default parameters','Upload parameters'])
     if deflt == "Default parameters":
         st.session_state['df_options'] = ['F3326','F3327','F3328','F3329','F3330','F3331','F3332','F3338', 'F3339', 'F3340', 'F3341', 'F3342', 'F3343', 'F3344', 'F3345', 'F3346']
+    if deflt == "Upload parameters" and st.session_state['updated_file'] == 0:
+        st.session_state['df_options'] = []
 
     uploaded_data = row1.file_uploader("Upload New Data")
     df_data =pd.read_excel('data/F3326.xlsx',decimal=',',header=None)
@@ -59,11 +61,14 @@ with cont1:
     )
     
     # Only data in parameters file are available
+    if uploaded_file is None:
+        st.session_state['updated_file'] = 0
     if deflt == 'Upload parameters' and uploaded_file is None:
         st.session_state['have_rerun'] = 0
     if deflt == 'Upload parameters' and uploaded_file is not None:
         df_prt = pd.read_excel(uploaded_file,decimal='.',header=None)
         st.session_state['df_options'] = df_prt.iloc[1:,0]
+        st.session_state['updated_file'] = 1
         if st.session_state['have_rerun'] == 0:
             st.session_state['have_rerun'] = 1
             st.experimental_rerun()
