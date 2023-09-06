@@ -72,8 +72,8 @@ with cont1:
         st.session_state['df_options'] = df_prt.iloc[1:,0]
         st.write(st.session_state['df_options'])
         # refresh
-        open("dummy.py", 'w')
-    
+        with open("dummy.py", 'w') as f:
+            f.write(f'dummy')
     # Read parameters
     if deflt == 'Default parameters':
         df_par = pd.read_excel('data/EssaiClient.xlsx',decimal=',',header=None)
