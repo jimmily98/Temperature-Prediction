@@ -22,5 +22,5 @@ st.markdown('2. Dans la puissance mesurée, \
             la puissance du congélateur augmente lorsque la température diminue, \
             ce qui n\'est pas conforme à la loi des moteurs thermiques.')
 st.markdown('Une telle divergence peut être due aux raisons suivantes :')
-st.markdown('1. la valeur de K est surestimée dans le calcul et la chaleur dissipée par les parois est supérieure à la valeur réelle.')
+st.markdown('1. la valeur de K est sous-estimée dans le calcul et la chaleur dissipée par les parois est supérieure à la valeur réelle.')
 st.markdown('2. l\'effet de la convection n\'est pas pris en compte et la puissance totale calculée est faible.')
